@@ -1,9 +1,9 @@
 import React from "react";
 import TrelloCard from "./TrelloCard";
-import TrelloButton from "../actions/TrelloActionButton";
+import TrelloButton from "../components/TrelloActionButton";
 import { height } from "@mui/system";
 
-const TrelloList = ({ title, cards }) => {
+const TrelloList = ({ title, cards, listID }) => {
     return (
         <div style={styles.container }>
             <h4>{title}</h4>
@@ -11,7 +11,7 @@ const TrelloList = ({ title, cards }) => {
             { cards.map(card => (
             <TrelloCard text={card.text} />
             ))}
-            <TrelloButton/>
+            <TrelloButton listID={listID}/>
         </div>
     )
 };
