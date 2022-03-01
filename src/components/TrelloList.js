@@ -1,5 +1,7 @@
 import React from "react";
 import TrelloCard from "./TrelloCard";
+import TrelloButton from "../actions/TrelloActionButton";
+import { height } from "@mui/system";
 
 const TrelloList = ({ title, cards }) => {
     return (
@@ -9,6 +11,7 @@ const TrelloList = ({ title, cards }) => {
             { cards.map(card => (
             <TrelloCard text={card.text} />
             ))}
+            <TrelloButton/>
         </div>
     )
 };
@@ -19,7 +22,8 @@ const styles = {
         borderRadius: 3,
         width: 300,
         padding: 8,
-        marginRight: 8
+        marginRight: 8,
+        height: "100%"
     }
 }
 

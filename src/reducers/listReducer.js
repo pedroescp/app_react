@@ -18,7 +18,7 @@ const initialState = [
             },
         ]
     },
-    {
+/*     {
         title: "SEXO DE GUITRAA",
         id: 0,
         cards: [
@@ -31,9 +31,9 @@ const initialState = [
                 text: "estefany linda gosytosa",
             },
         ]
-    },
+    }, */
 
-    {
+   /*  {
         title: "O HOMI DAS CARÇA ERGUIDA MEU",
         id: 0,
         cards: [
@@ -46,7 +46,7 @@ const initialState = [
                 text: "VOU COMER O CU DO PROFESSOR DE POO",
             },
         ]
-    },
+    }, */
 ];
 
 const listReducer = (state = initialState, action) => {
