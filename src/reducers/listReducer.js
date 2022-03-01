@@ -1,3 +1,7 @@
+import  { CONSTANTS } from "../actions";
+
+let listID = 2;
+let cardID = 4;
 
 const initialState = [
     {
@@ -6,51 +10,53 @@ const initialState = [
         cards: [
             {
                 id: 0,
-                text: "Opa amigo secxoooooooooooooooo",
+                text: "Pensa numa anotação top",
             },
             {
                 id: 1,
-                text: "estefany linda gosytosa",
+                text: "opa teste ",
             },
                         {
                 id: 2,
-                text: "cCOMI O CU DE QUEM TA LENDO AHAHAHAH",
+                text: "teste teste",
             },
         ]
     },
-/*     {
-        title: "SEXO DE GUITRAA",
-        id: 0,
-        cards: [
-            {
-                id: 0,
-                text: "Opa amigo secxoooooooooooooooo",
-            },
-            {
-                id: 1,
-                text: "estefany linda gosytosa",
-            },
-        ]
-    }, */
-
-   /*  {
-        title: "O HOMI DAS CARÇA ERGUIDA MEU",
-        id: 0,
-        cards: [
-            {
-                id: 0,
-                text: "FELIPE SEU CORNO MACACO",
-            },
-            {
-                id: 1,
-                text: "VOU COMER O CU DO PROFESSOR DE POO",
-            },
-        ]
-    }, */
 ];
 
 const listReducer = (state = initialState, action) => {
     switch(action.type) {
+
+    case CONSTANTS.ADD_LIST:
+        const  newList = { 
+            title: action.payload,
+            cards: [],
+            id: listID
+        }        
+        listID += 1;
+        return [...state, newList]
+
+    case CONSTANTS.ADD_CARD:
+        const newCard = {
+            text: action.payload.text,
+            id: cardID
+        }
+
+        cardID += 1;
+
+        const newState = state.map(list => {
+            if(list.id === action.payload.listID ){
+                return {
+                    ...list,
+                    cards: [...list.cards, newCard]
+                }
+            } else {
+                return list;
+            } 
+        });
+
+        return newState;
+
         default:
             return state;
     }
