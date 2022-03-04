@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-
+import "../global.css";
 import TrelloList from "./TrelloList";
 import { connect } from "react-redux";
 import TrelloActionButton from "../components/TrelloActionButton";

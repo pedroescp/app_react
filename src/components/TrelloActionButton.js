@@ -5,13 +5,14 @@ import Card from '@mui/material/Card';
 import {Button} from "@mui/material";
 import { connect } from "react-redux";
 import { addList, addCard } from "../actions";
+import SaveIcon from '@mui/icons-material/Save';
 
 
 
 class TrelloActionButton extends React.Component {
 
     state = {
-        formOpen: false,
+        formOpen: true,
         text: "",
     }
 
@@ -73,11 +74,13 @@ class TrelloActionButton extends React.Component {
                     value={this.state.text}
                     onChange={this.handleInputChange}
                     style={styles.textarea}
+                    
                 />
             </Card>
             <div style={styles.fromButtonGroup}>
-                <Button onMouseDown={list ? this.handleAddList : this.handleAddCard} variant="contained" style={styles.ButtonCard}>{ buttonTitle }</Button>
-                <Icon style={styles.IconButtonX}>close</Icon>
+            <Icon style={styles.IconButtonX}>close</Icon>
+                <Button onMouseDown={list ? this.handleAddList : this.handleAddCard} variant="contained" startIcon={<SaveIcon />} style={styles.ButtonCard}>{ buttonTitle }</Button>
+                
             </div>
         </div>
 
@@ -116,35 +119,42 @@ const styles = {
         height: 36,
         width: 272,
         paddingLeft: 10,
+        marginTop: 10,
     },
     fromButtonGroup:{
-        marginTop: 8,
         display: "flex",
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "right",
     },
     textarea: {
         resize: "none",
         width: 272,
         outline: "none",
         border: "none",
-        overflow: "hidden"
+        overflow: "hidden",
+        //aumentar a area para o texto para baixo usando o padding bottom
+        paddingBottom: 50,
+        borderRadius: 3,
+
     },
     cardGroup: {
         overflow: "visible",
         minHeight: 80,
         minWidhth: 272,
-        padding: "6px 8px 2px"
+        padding: "6px 8px 2px",
+        marginTop: 10,
     },
     ButtonCard: {
-        color: "white",
-        backgroundColor: "",
         marginTop: 8,
-        backgroundColor: "#5aac44",
-        cursor: "pointer"
+        backgroundColor: "#0288d1",
+        cursor: "pointer",
+        display: "flex",
+        justifyContent: "right",
     },
 
     IconButtonX: {
-        marginLeft: 8,
+        marginRight: 8,
+        marginTop: 8,
         cursor: "pointer"
     },
 
