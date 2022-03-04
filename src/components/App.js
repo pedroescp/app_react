@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import TrelloList from "./TrelloList";
 import { connect } from "react-redux";
 import TrelloActionButton from "../components/TrelloActionButton";
+import NavBar from "../components/NavBar/navbar";
 
 class App extends Component {
   render() {
@@ -12,7 +13,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h2>PROGRAMING A TRELLOS</h2>
+        <NavBar/>
         <div style={styles.listContainer}>
           {lists.map(list => (
             <TrelloList  listID={list.id} title={list.title} cards={list.cards} />
